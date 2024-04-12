@@ -3,27 +3,34 @@ import { Navbar } from './components/Navbar'
 import './App.css'
 import { Card } from './components/Card'
 
+import axios from 'axios'
+
+const API_URL = "https://api.rawg.io/api/games?key=3ed74fd8a97249858285e21f6e5768ea&page_size=30"
+
 function App() {
-  const [gameDetails,setGameDetails] = useState([]);
+    const [gameArray, setGameArray] = useState([]);
 
-  useEffect(()=>{
-    fetch("https://api.rawg.io/api/games?key=3ed74fd8a97249858285e21f6e5768ea&page_size=5")
-      .then(response => response.json())
-        .then(( (data)=>{
-          console.log(data.results);
-          setGameDetails(data.results);
-        }))
-        .catch(error => console.error(error));
-  },[])
-
+    useEffect(() => {
+        async function fetchData() {
+            const response = await axios.get(API_URL);
+            setGameArray(response.data.results);
+            console.log(response.data.results);
+        }
+        fetchData();
+    }, []);
 
 
-  return (
-    <>
-      <Navbar />
-      <Card title={gameDetails[0].name}/>
-    </>
-  )
+    return (
+        <>
+            <Navbar />
+
+            <div className="gameList">
+                {gameArray.map((game) => {
+                    return <Card title={game.name} description={"DUMMY DESCR"} imageURL={game.background_image} price={game.reviews_count} />
+                })}
+            </div>
+        </>
+    )
 }
 
 export default App
