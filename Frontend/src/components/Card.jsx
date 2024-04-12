@@ -12,8 +12,8 @@ export function Card({
         </div>
         <div className="gamedetails">
             <div className="gametitle"> {title} </div>
-            <div className="gamedescription"> {description} </div>
-            <div className="gameprice"> {price} </div>
+            <div className="gamedescription">Released : <span style={{color:"black"}}>{description}</span> </div>
+            <div className="gameprice">$ {price}.00 </div>
         </div>
         <div className="buynow">
             <button>BuyNow</button>

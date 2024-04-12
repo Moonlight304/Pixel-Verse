@@ -1,3 +1,5 @@
+
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -55,17 +57,35 @@
     flex-direction: column;
     padding: 15px;
     width: 200px;
-    height: fit-content;
+    height: 235px;
     box-shadow: 1px 0.5px 1px black;
     margin: 10px;
+    justify-content: space-between;
+    background-color: rgb(243, 227, 227);
 }
 
 .gameimage>img {
     width: 190px;
-    padding: 0px 10px 0px 0px;
+    height: 110px;
+    box-shadow: 1px 0.5px 1px gray;
 }
 
 .gameList {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
+}
+.gametitle{
+    font-weight: 900;
+}
+.gametitle:hover{
+    color: purple;
+    cursor: pointer;
+}
+.gamedescription{
+    color: gray;
+    font-size: smaller;
+}
+.gameprice{
+    padding-top: 5px;
+    font-weight: 550;
 }
