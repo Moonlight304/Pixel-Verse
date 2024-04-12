@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react'
 import { Navbar } from './components/Navbar'
 import './App.css'
 import { Card } from './components/Card'
+import { CardList } from './components/CardList'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Game } from './components/Game'
 
 import axios from 'axios'
 
@@ -24,13 +27,12 @@ function App() {
         <>
             <Navbar />
 
-            
-
-            <div className="gameList">
-                {gameArray.map((game, index) => {
-                    return <Card key={index} id={game.id} title={game.name} description={game.released} imageURL={game.background_image} price={game.reviews_count} />
-                })}
-            </div>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<CardList gameArray={gameArray} />} />
+                    <Route path="/show/:id" element={<Game />}/>
+                </Routes>
+            </BrowserRouter>
         </>
     )
 }

@@ -70,7 +70,7 @@
     box-shadow: 1px 0.5px 1px gray;
 }
 
-.gameList {
+.CardList {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
 }
