@@ -24,9 +24,11 @@ function App() {
         <>
             <Navbar />
 
+            
+
             <div className="gameList">
-                {gameArray.map((game,index) => {
-                    return <Card key={index} title={game.name} description={game.released} imageURL={game.background_image} price={game.reviews_count} />
+                {gameArray.map((game, index) => {
+                    return <Card key={index} id={game.id} title={game.name} description={game.released} imageURL={game.background_image} price={game.reviews_count} />
                 })}
             </div>
         </>
